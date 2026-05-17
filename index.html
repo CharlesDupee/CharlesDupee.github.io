@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Dupee | Builder, Founder, Operator, Architect</title>
+    <meta name="description" content="Charles Dupee - Founder, entrepreneur, and product architect with 20+ years building and shipping commercialized software platforms across ventures and enterprise.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .section-header {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.75rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            border-radius: 9999px;
+        }
+
+        .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+
+        .nav-link { transition: color 0.2s ease; }
+        .nav-link:hover { color: #3b82f6; }
+
+        .metric {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .skill-badge { background-color: #f1f5f9; color: #334155; font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 9999px; }
+
+        /* Animated gradient blobs in hero */
+        .blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(70px);
+            opacity: 0.55;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .blob-1 { width: 480px; height: 480px; top: -120px; right: -80px; background: radial-gradient(circle at 30% 30%, #c4b5fd, #60a5fa 60%, transparent 70%); animation: float 14s ease-in-out infinite; }
+        .blob-2 { width: 380px; height: 380px; bottom: -160px; left: -60px; background: radial-gradient(circle at 60% 40%, #6ee7b7, #38bdf8 70%, transparent 80%); animation: float 18s ease-in-out infinite reverse; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
+        }
+
+        /* Subtle grid backdrop */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        /* Glass nav */
+        .glass-nav { backdrop-filter: saturate(180%) blur(14px); background-color: rgba(255,255,255,0.72); }
+
+        /* Timeline rail */
+        .timeline-rail {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .timeline-rail:before {
+            content: '';
+            position: absolute;
+            left: 0.65rem;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #6366f1 50%, #cbd5e1);
+            border-radius: 9999px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: white;
+            border: 3px solid #3b82f6;
+            border-radius: 9999px;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+        }
+
+        /* Active tag */
+        .active-tag-style { box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0f172a; }
+
+        /* Smooth anchor scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Featured project glow */
+        .featured-glow {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-glow:before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.35), transparent 50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <nav class="glass-nav border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">CD</span>
+                </div>
+                <span class="font-semibold text-xl tracking-tight">Charles Dupee</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#philosophy" class="nav-link text-slate-600 hover:text-slate-900">Approach</a>
+                <a href="#projects" class="nav-link text-slate-600 hover:text-slate-900">Projects</a>
+                <a href="#ai-lab" class="nav-link text-slate-600 hover:text-slate-900">AI Lab</a>
+                <a href="#skills" class="nav-link text-slate-600 hover:text-slate-900">Skills</a>
+                <a href="#education" class="nav-link text-slate-600 hover:text-slate-900">Credentials</a>
+            </div>
+
+            <div class="flex items-center gap-x-3">
+                <a href="https://x.com/charlesdupee" target="_blank" aria-label="X (Twitter)" class="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/charlesdupee" target="_blank" aria-label="LinkedIn" class="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:CharlesDupee@Gmail.com" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-2xl flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-10 5L2 7"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="relative overflow-hidden grid-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-24 z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/80 border border-slate-200 rounded-3xl px-4 py-1.5 mb-6 backdrop-blur">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-medium text-slate-600">Open to strategic opportunities</span>
+                    <span class="text-slate-300">•</span>
+                    <span class="text-sm font-medium text-slate-600">Remote or Relocation</span>
+                </div>
+
+                <h1 class="text-6xl md:text-8xl font-semibold tracking-tighter heading-font leading-[0.95] mb-6">
+                    Charles <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">Dupee</span>
+                </h1>
+                <p class="text-3xl md:text-4xl font-medium text-slate-700 tracking-tight mb-8">
+                    Builder <span class="text-slate-400">·</span> Founder <span class="text-slate-400">·</span> Operator <span class="text-slate-400">·</span> Architect
+                </p>
+
+                <div class="max-w-2xl">
+                    <p class="text-xl text-slate-600 leading-relaxed">
+                        <strong class="text-slate-900">20+ years</strong> across public and private, corporate America, venture capital, and small businesses. Enterprise technology director, leader of engineering organizations, hands-on platform/product architect, and a managing founder of my own ventures.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mt-10">
+                    <a href="mailto:CharlesDupee@Gmail.com" class="px-8 py-4 bg-slate-900 hover:bg-black text-white font-semibold rounded-3xl flex items-center gap-x-3 text-lg shadow-lg shadow-slate-900/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-10 5L2 7"/>
+                        </svg>
+                        Get in touch
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-1">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#projects" class="px-8 py-4 border border-slate-300 bg-white/70 hover:bg-white font-semibold rounded-3xl flex items-center gap-x-3 text-lg backdrop-blur">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                            <path d="M6 14l1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                        View projects
+                    </a>
+                    <a href="https://x.com/charlesdupee" target="_blank" aria-label="X (Twitter)" class="w-14 h-14 border border-slate-300 bg-white/70 hover:bg-white rounded-3xl flex items-center justify-center backdrop-blur">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/charlesdupee" target="_blank" aria-label="LinkedIn" class="w-14 h-14 border border-slate-300 bg-white/70 hover:bg-white rounded-3xl flex items-center justify-center backdrop-blur">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Tagline strip -->
+                <div class="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500 mono">
+                    <span class="flex items-center gap-x-2"><i class="fas fa-circle text-[6px] text-blue-500"></i> Founder &amp; CTO</span>
+                    <span class="flex items-center gap-x-2"><i class="fas fa-circle text-[6px] text-indigo-500"></i> Platform and Product</span>
+                    <span class="flex items-center gap-x-2"><i class="fas fa-circle text-[6px] text-emerald-500"></i> Data &amp; Integration</span>
+                    <span class="flex items-center gap-x-2"><i class="fas fa-circle text-[6px] text-rose-500"></i> Security &amp; Identity</span>
+                    <span class="flex items-center gap-x-2"><i class="fas fa-circle text-[6px] text-violet-500"></i> AI / ML</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="border-t border-b border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div class="text-center">
+                <div class="metric">20+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Years Experience</div>
+            </div>
+            <div class="text-center">
+                <div class="metric">8+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Platforms Built &amp; Shipped</div>
+            </div>
+            <div class="text-center">
+                <div class="metric">$10M+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Budget Managed</div>
+            </div>
+            <div class="text-center">
+                <div class="metric">50+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Person Teams Built</div>
+            </div>
+            <div class="text-center">
+                <div class="metric">13+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Years People Leading</div>
+            </div>
+            <div class="text-center">
+                <div class="metric">8+</div>
+                <div class="text-sm font-medium text-slate-500 mt-2">Industries Served</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currently Building strip -->
+    <div class="bg-slate-900 text-white py-6 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium mono">
+                <span class="text-emerald-400">// CURRENTLY BUILDING</span>
+                <a href="https://github.com/CharlesDupee/agency-protocol" target="_blank" class="text-white font-semibold hover:underline">Agency Protocol</a>
+                <span class="text-slate-600">&rarr;</span>
+                <span class="text-slate-300">1st-Class Agency Citizens</span>
+                <span class="text-slate-600">&middot;</span>
+                <span class="text-slate-300">One-Shot Products</span>
+                <span class="text-slate-600">&middot;</span>
+                <span class="text-slate-300">LLM-Driven Integrations</span>
+                <span class="text-slate-600">&middot;</span>
+                <span class="text-slate-300">Agent Hardware Adapters</span>
+                <span class="text-slate-600">&middot;</span>
+                <span class="text-slate-300">Event-Driven SaaS at Scale</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Philosophy / Approach (NEW) -->
+    <div id="philosophy" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-10">
+            <span class="block text-blue-600 font-semibold tracking-widest text-sm">APPROACH</span>
+            <h2 class="section-header">How I Work</h2>
+            <p class="text-slate-600 max-w-2xl mt-2">Three principles that have shaped every platform I&rsquo;ve built and every team I&rsquo;ve led.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-blue-300 transition-all hover:shadow-lg">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-5">
+                    <i class="fas fa-rocket text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Bias for Building</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">I&rsquo;ve built companies, products, and teams from zero &mdash; and I&rsquo;ve never stopped. Continuous building is my founder reflex: I own the outcome, ship something real, then iterate.</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-emerald-300 transition-all hover:shadow-lg">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-5">
+                    <i class="fas fa-cube text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Product-First Architecture</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Architecture earns its keep when the product serves the customer. I design from the outside in, backwards into strategy. Choices follow the product, not the other way around.</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-violet-300 transition-all hover:shadow-lg">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mb-5">
+                    <i class="fas fa-compass text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-xl mb-2">Domain Pattern Optimizing</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Twenty years &times; eight domains &times; four roles &mdash; builder, founder, operator, and architect. I recognize a problem&rsquo;s underlying pattern, then optimize the solution.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-xs text-slate-500 mono">
+            Industry Domains: Logistics &middot; Transportation &middot; Retail &middot; Media &middot; Healthcare &middot; Academia &middot; Identity &middot; Managed Services
+        </div>
+    </div>
+
+    <!-- Projects (EXPANDED) -->
+    <div id="projects" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-10">
+            <span class="block text-blue-600 font-semibold tracking-widest text-sm">SIGNATURE WORK</span>
+            <h2 class="section-header">Key Enterprise Projects</h2>
+            <p class="text-slate-600 max-w-2xl">Selected large-scale initiatives where I led architecture, design, and delivery across complex enterprise environments.</p>
+        </div>
+
+        <!-- Featured Project Hero Card -->
+        <div class="featured-glow text-white rounded-3xl p-10 mb-10">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-4 text-xs font-medium backdrop-blur">
+                    <i class="fas fa-star text-amber-300"></i> FLAGSHIP &middot; INTEGRATION PLATFORM
+                </div>
+                <h3 class="text-3xl md:text-4xl font-semibold tracking-tight heading-font mb-3">Enterprise Integration Platform</h3>
+                <p class="text-slate-200 text-lg leading-relaxed mb-4 max-w-4xl">Built a governed, cloud-native integration platform that gives product teams a single, consistent way to exchange data across the portfolio &mdash; supporting both event-driven and request/response patterns, with built-in routing, durability, and isolation across products, tenants, and environments. Built to scale with the business without each product team having to solve integration from scratch.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Cloud-Native</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Event-Driven</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Sync + Async</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Serverless</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">API-First</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Multi-Tenant</span>
+                </div>
+                <div class="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 mono">Role</span>
+                    <span class="text-sm font-semibold text-white">Architect &amp; Design Lead</span>
+                    <span class="text-slate-500">&middot;</span>
+                    <span class="text-xs text-slate-300">Architecture &middot; Design &middot; Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature: People & Org -->
+        <div class="featured-glow text-white rounded-3xl p-10 mb-10">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-4 text-xs font-medium backdrop-blur">
+                    <i class="fas fa-users text-rose-300"></i> FLAGSHIP &middot; PEOPLE LEADERSHIP
+                </div>
+                <h3 class="text-3xl md:text-4xl font-semibold tracking-tight heading-font mb-3">Full-Stack Tech Org from Scratch</h3>
+                <p class="text-slate-200 text-lg leading-relaxed mb-4 max-w-4xl">Built a 50+ person full-stack technology organization from zero &mdash; Help Desk through Engineering &mdash; with P&amp;L ownership of $10M+ across 125+ sites and 30+ customers. While staffing the org, we shipped two foundational builds in parallel: a full industry platform with native mobile and web front-ends, and the merger of two physical datacenters into a hybrid cloud. The result: insourced previously outsourced services, 15% off operating budget, and product uptime from 80% to 99%.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Org Design</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Hiring &amp; Mentoring</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">P&amp;L Ownership</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Platform Build</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Datacenter Merge</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Operating Model</span>
+                </div>
+                <div class="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 mono">Role</span>
+                    <span class="text-sm font-semibold text-white">Senior Director IT</span>
+                    <span class="text-slate-500">&middot;</span>
+                    <span class="text-xs text-slate-300">Founder Mindset &middot; Builder &middot; Leader</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature: Data Platform -->
+        <div class="featured-glow text-white rounded-3xl p-10 mb-10">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-4 text-xs font-medium backdrop-blur">
+                    <i class="fas fa-database text-emerald-300"></i> FLAGSHIP &middot; DATA PLATFORM
+                </div>
+                <h3 class="text-3xl md:text-4xl font-semibold tracking-tight heading-font mb-3">Enterprise Data Platform</h3>
+                <p class="text-slate-200 text-lg leading-relaxed mb-4 max-w-4xl">Designed and implemented enterprise data platforms across AWS and Azure tech stacks &mdash; building transformation pipelines that move data from transactional systems through normalized operational layers into analytical/BI presentation, agentic RAG retrieval, and predictive analytics, all drawing from a single source-of-truth with a reusable foundation the business could grow into.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">AWS</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Azure</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Transformation Pipelines</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">ETL / ELT</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Master Data</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Analytical / BI</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Agentic RAG</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Predictive Analytics</span>
+                </div>
+                <div class="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 mono">Role</span>
+                    <span class="text-sm font-semibold text-white">Architect &middot; Engineer</span>
+                    <span class="text-slate-500">&middot;</span>
+                    <span class="text-xs text-slate-300">Architecture &middot; Design &middot; Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature: M&A System Integration -->
+        <div class="featured-glow text-white rounded-3xl p-10 mb-10">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 mb-4 text-xs font-medium backdrop-blur">
+                    <i class="fas fa-code-branch text-sky-300"></i> FLAGSHIP &middot; CORPORATE TRANSACTIONS
+                </div>
+                <h3 class="text-3xl md:text-4xl font-semibold tracking-tight heading-font mb-3">Corporate Transactions: Divestment, Acquisition, Public Offering</h3>
+                <p class="text-slate-200 text-lg leading-relaxed mb-4 max-w-4xl">Technical architect for one divestment &mdash; designing how to separate two companies sharing the same identity systems and migrate the divesting entity onto an independent platform stack, with clean cutover of people, systems, and capabilities. Participated in an acquisition and a public offering marketing roadshow. On the acquisition side, helped integrate workers, workflows, and systems into the existing operating environment.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Divestment Architecture</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Identity System Split</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Platform Migration</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Acquisition Integration</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">IPO Roadshow</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">Legacy Decommission</span>
+                    <span class="px-3 py-1 text-xs bg-white/10 border border-white/20 rounded-full">SaaS Consolidation</span>
+                </div>
+                <div class="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 mono">Role</span>
+                    <span class="text-sm font-semibold text-white">Technical Architect (Divestment) &middot; Contributor (Acquisition, IPO)</span>
+                    <span class="text-slate-500">&middot;</span>
+                    <span class="text-xs text-slate-300">Architecture &middot; Design &middot; Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filterable Tags -->
+        <div class="mb-8">
+            <div class="flex items-center gap-x-2 mb-3 flex-wrap">
+                <span class="text-sm font-semibold text-slate-600">Filter by work type:</span>
+                <button onclick="filterProjects('all')" class="px-4 py-1 text-xs font-medium bg-slate-900 text-white rounded-full hover:bg-black transition-colors active-tag-style" id="tag-all">All</button>
+            </div>
+            <div class="flex flex-wrap gap-2" id="tag-filters">
+                <button onclick="filterProjects('Integration')" class="px-3 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors">#Integration</button>
+                <button onclick="filterProjects('SaaS')" class="px-3 py-1 text-xs font-medium bg-purple-100 text-purple-700 rounded-full hover:bg-purple-200 transition-colors">#SaaS</button>
+                <button onclick="filterProjects('Event-Driven')" class="px-3 py-1 text-xs font-medium bg-indigo-100 text-indigo-700 rounded-full hover:bg-indigo-200 transition-colors">#Event-Driven</button>
+                <button onclick="filterProjects('Data')" class="px-3 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full hover:bg-emerald-200 transition-colors">#Data</button>
+                <button onclick="filterProjects('ETL')" class="px-3 py-1 text-xs font-medium bg-teal-100 text-teal-700 rounded-full hover:bg-teal-200 transition-colors">#ETL</button>
+                <button onclick="filterProjects('Analytics')" class="px-3 py-1 text-xs font-medium bg-cyan-100 text-cyan-700 rounded-full hover:bg-cyan-200 transition-colors">#Analytics</button>
+                <button onclick="filterProjects('Cloud')" class="px-3 py-1 text-xs font-medium bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-colors">#Cloud</button>
+                <button onclick="filterProjects('Security')" class="px-3 py-1 text-xs font-medium bg-rose-100 text-rose-700 rounded-full hover:bg-rose-200 transition-colors">#Security</button>
+                <button onclick="filterProjects('AI')" class="px-3 py-1 text-xs font-medium bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition-colors">#AI</button>
+                <button onclick="filterProjects('DevOps')" class="px-3 py-1 text-xs font-medium bg-lime-100 text-lime-700 rounded-full hover:bg-lime-200 transition-colors">#DevOps</button>
+                <button onclick="filterProjects('Automation')" class="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors">#Automation</button>
+                <button onclick="filterProjects('UX')" class="px-3 py-1 text-xs font-medium bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-colors">#UX</button>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Project: Hybrid Cloud Datacenter Migration -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Hybrid Cloud Datacenter Migration</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-sky-100 text-sky-700 rounded-full">#Cloud</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-blue-100 text-blue-700 rounded-full">#Migration</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-indigo-100 text-indigo-700 rounded-full">#Infrastructure</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Led the consolidation of two physical datacenters into a hybrid cloud environment serving 100+ edge locations with local-first HADR.</p>
+                <div class="text-[10px] text-slate-500">Azure • VMware • HADR • 125+ Sites</div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Monolithic Order Management Replatform</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-purple-100 text-purple-700 rounded-full">#SaaS</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-violet-100 text-violet-700 rounded-full">#Architecture</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-fuchsia-100 text-fuchsia-700 rounded-full">#Cloud-Native</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Led the full decomposition and replatforming of a legacy monolithic order management system into a scalable, cloud-native managed SaaS platform using serverless and containerized architecture.</p>
+                <div class="text-[10px] text-slate-500">PostgreSQL • ECS • Lambda • Terraform • Docker</div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Enterprise Identity &amp; Authentication Platform</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-rose-100 text-rose-700 rounded-full">#Security</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-pink-100 text-pink-700 rounded-full">#Identity</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-red-100 text-red-700 rounded-full">#SSO</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Designed and delivered a centralized multi-product, multi-IdP identity broker supporting federated SSO, OIDC, and OAuth2 with both online and offline capabilities across multiple environments.</p>
+                <div class="text-[10px] text-slate-500">Keycloak • OIDC • OAuth2 • Cognito • Entra ID • Okta</div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Mobile Computer Vision + AR Label Scanner</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-orange-100 text-orange-700 rounded-full">#AI</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-amber-100 text-amber-700 rounded-full">#ComputerVision</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-yellow-100 text-yellow-700 rounded-full">#Mobile</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Led development of an ML + AR-powered mobile label scanning system for warehouse and logistics operations.</p>
+                <div class="text-[10px] text-slate-500">Machine Learning • Computer Vision • AR • Android SDK</div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">CI/CD Automation Platform</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-lime-100 text-lime-700 rounded-full">#DevOps</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-green-100 text-green-700 rounded-full">#CI/CD</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-emerald-100 text-emerald-700 rounded-full">#Automation</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Designed and delivered enterprise DevOps CI/CD pipelines for Engineering and Infrastructure teams, replacing legacy Jenkins with a modern SaaS-based solution.</p>
+                <div class="text-[10px] text-slate-500">Terraform • Docker • CI/CD • DevOps • SaaS</div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Business Process Automation Platform</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-teal-100 text-teal-700 rounded-full">#Automation</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-cyan-100 text-cyan-700 rounded-full">#BPA</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-sky-100 text-sky-700 rounded-full">#Integration</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Served as lead architect and developer for an internal enterprise BPA platform spanning telematics, mobility, safety, and regulatory compliance — replacing manual workflows.</p>
+                <div class="text-[10px] text-slate-500">MSSQL • JavaScript • Internal Platform</div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">EDI Platform Modernization</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-violet-100 text-violet-700 rounded-full">#Integration</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-purple-100 text-purple-700 rounded-full">#B2B</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-fuchsia-100 text-fuchsia-700 rounded-full">#Cloud</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Migrated a legacy EDI (X12) platform to a cloud PaaS-based API solution, modernizing B2B data exchange across 30+ customers.</p>
+                <div class="text-[10px] text-slate-500">EDI • X12 • Cloud PaaS • APIs • B2B</div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Business Intelligence &amp; Analytics</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-amber-100 text-amber-700 rounded-full">#Analytics</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-yellow-100 text-yellow-700 rounded-full">#BI</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-orange-100 text-orange-700 rounded-full">#Data</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Built enterprise BI dashboards, KPIs, and reporting across operational and data warehouse environments, plus a full data catalogue.</p>
+                <div class="text-[10px] text-slate-500">SSRS • SSIS • SQL • PowerBI • Tableau</div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Predictive Models &amp; Machine Learning</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-rose-100 text-rose-700 rounded-full">#AI</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-pink-100 text-pink-700 rounded-full">#ML</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-red-100 text-red-700 rounded-full">#Predictive</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Led development of ML predictive models for operational forecasting and decision-making within a transportation environment.</p>
+                <div class="text-[10px] text-slate-500">Python • ML • Predictive Analytics • Data Science</div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h3 class="font-semibold text-lg">Modern UX Re-Platform</h3>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 mb-3">
+                    <span class="px-2 py-0.5 text-[10px] bg-sky-100 text-sky-700 rounded-full">#UX</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-cyan-100 text-cyan-700 rounded-full">#Frontend</span>
+                    <span class="px-2 py-0.5 text-[10px] bg-teal-100 text-teal-700 rounded-full">#LowCode</span>
+                </div>
+                <p class="text-slate-600 text-sm mb-3">Drove a UI rejuvenation strategy using reusable Figma components to accelerate low-code/no-code frontend development across the organization.</p>
+                <div class="text-[10px] text-slate-500">Figma • Low-Code/No-Code • UI/UX • Reusable Components</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Infrastructure / Hands-On AI Lab -->
+    <div id="ai-lab" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-10">
+            <span class="block text-blue-600 font-semibold tracking-widest text-sm">AI INFRASTRUCTURE</span>
+            <h2 class="section-header">Hands-On AI Lab</h2>
+            <p class="text-slate-600 max-w-2xl mt-2">Architecting AI into products is a hands-on craft. The lab is where patterns get debugged before they get recommended.</p>
+        </div>
+
+        <div class="bg-slate-900 text-white rounded-3xl p-10">
+            <!-- Lab header -->
+            <div class="mb-8 pb-6 border-b border-white/15">
+                <div class="text-xs uppercase tracking-widest text-emerald-400 mono mb-2">// LIVE LAB</div>
+                <h3 class="text-2xl md:text-3xl font-semibold tracking-tight heading-font">Dual NVIDIA DGX Spark &middot; Grace Blackwell</h3>
+                <p class="text-slate-400 text-sm mt-1 mono">vLLM + Ray cluster &middot; 200GbE RoCE interconnect</p>
+            </div>
+
+            <!-- Lead paragraph -->
+            <p class="text-slate-200 text-lg leading-relaxed mb-6 max-w-4xl">A pair of NVIDIA DGX Sparks in my home office is how I prototype, experience, and strategize before recommending anything to anyone. Real models, real workloads, real failure &mdash; the kind of fluency you can&rsquo;t fake.</p>
+
+            <!-- Self-demonstration callout -->
+            <div class="mb-10 max-w-4xl bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-5">
+                <div class="flex items-start gap-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i class="fas fa-rotate text-emerald-300 text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-emerald-400 mono mb-1">// self-demonstrating</div>
+                        <p class="text-sm text-slate-200 leading-relaxed">This page is updated automatically by a scoped agentic context-gathering process running on the lab below &mdash; an agent harvests signal from my repos, projects, and notes, scopes it to the slug of this portfolio, and submits proposed edits. The portfolio you&rsquo;re reading is itself an output of the architecture it describes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Six-box Evaluation Grid (unified format) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+
+                <!-- 1: Custom Gateway-Mediated Routing -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-route text-sky-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">Custom Gateway Routing</div>
+                    <div class="text-xs text-slate-500 mono mb-4">Top 5 evaluated &mdash; what I&rsquo;m running with</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500 line-through decoration-slate-600">Round-robin / latency LB</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">LiteLLM</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">OpenRouter</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">Portkey</li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            Custom complexity router <span class="text-xs text-emerald-400 mono font-normal">// in-house</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">A custom gateway sits in front of all requests &mdash; direct or agentic &mdash; classifying complexity, then dispatching with the right model config (thinking vs. fast, temperature, context budget) for the job.</p>
+                </div>
+
+                <!-- 2: Quantization & Efficiency -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-bolt text-amber-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">Quantization &amp; Efficiency</div>
+                    <div class="text-xs text-slate-500 mono mb-4">Top 5 evaluated &mdash; what I&rsquo;m running with</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500 line-through decoration-slate-600">FP16 / BF16 baseline</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">GPTQ</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">AWQ</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">NF4 / QLoRA</li>
+                        <li class="text-amber-200 flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                            NVIDIA native NVFP4 <span class="text-xs text-amber-300 mono font-normal">// almost prod ready</span>
+                        </li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            REAP + custom recipe <span class="text-xs text-emerald-400 mono font-normal">// MoE-aware</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">Weight precision, KV-cache compression, MoE expert pruning (REAP), and serving throughput &mdash; preserving model quality while local dense models get small and fast enough to serve in production.</p>
+                </div>
+
+                <!-- 3: RAG & Retrieval -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-database text-emerald-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">RAG &amp; Retrieval</div>
+                    <div class="text-xs text-slate-500 mono mb-4">Evaluated &mdash; what I&rsquo;m running with</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500 line-through decoration-slate-600">Pinecone</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">pgvector standalone</li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            Hybrid (vector + relational + metadata) <span class="text-xs text-emerald-400 mono font-normal">// slug-scoped</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">Grounding agents in source-of-truth data &mdash; every retrieval scoped to a specific tenant or customer slug so cross-tenant leakage never happens. The same source-of-truth pattern the Enterprise Data Platform applies at scale.</p>
+                </div>
+
+                <!-- 4: Open-Source LLMs -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-brain text-violet-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">Open-Source LLMs</div>
+                    <div class="text-xs text-slate-500 mono mb-4">Top 5 evaluated &mdash; what I&rsquo;m running with</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500 line-through decoration-slate-600">Kimi K2.6</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">MiniMax 2.7</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">GLM 5.1</li>
+                        <li class="text-amber-200 flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                            DeepSeek V4 Fast <span class="text-xs text-amber-300 mono font-normal">// almost prod ready</span>
+                        </li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            Qwen3.5-122B-A10B <span class="text-xs text-emerald-400 mono font-normal">// REAPed, via vLLM</span>
+                        </li>
+                        <li class="text-white font-semibold flex items-center gap-x-2 mt-1">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            NVIDIA Parakeet TDT <span class="text-xs text-emerald-400 mono font-normal">// speech / ASR</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">Qwen3.5-122B is the sweet spot for this hardware, REAP-pruned for serving throughput without the quality cliff. The custom gateway router decides per request when a heavier reasoning pass earns its tokens.</p>
+                </div>
+
+                <!-- 5: Agent Harness -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-sitemap text-indigo-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">Agent Harness</div>
+                    <div class="text-xs text-slate-500 mono mb-4">Top 5 evaluated &mdash; what I&rsquo;m building with</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500 line-through decoration-slate-600">LangGraph</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">CrewAI</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">OpenClaw</li>
+                        <li class="text-slate-500 line-through decoration-slate-600">nanoclaw</li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            Hermes <span class="text-xs text-emerald-400 mono font-normal">// in-house</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">Hermes is the harness in play today, deployed behind a swappable adapter so the harness layer can change without touching anything upstream. Each instance is scoped to a specific slug &mdash; tenant, customer, or audience &mdash; so a harness serves one defined population, not the whole house.</p>
+                </div>
+
+                <!-- 6: Agent Protocols -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center mb-3">
+                        <i class="fas fa-plug text-blue-300 text-lg"></i>
+                    </div>
+                    <div class="font-semibold text-white mb-1">Agent Protocols</div>
+                    <div class="text-xs text-slate-500 mono mb-4">By purpose &mdash; building the missing layer</div>
+                    <ul class="space-y-2 text-sm flex-1">
+                        <li class="text-slate-500">Commerce checkout <span class="text-xs text-slate-600 mono">// ACP</span></li>
+                        <li class="text-slate-500">Commerce discovery <span class="text-xs text-slate-600 mono">// UCP</span></li>
+                        <li class="text-slate-500">Payment authorization <span class="text-xs text-slate-600 mono">// AP2</span></li>
+                        <li class="text-slate-500">Agent-to-agent &middot; tool/context <span class="text-xs text-slate-600 mono">// A2A &middot; MCP</span></li>
+                        <li class="text-white font-semibold flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                            <a href="https://github.com/CharlesDupee/agency-protocol" target="_blank" class="hover:underline">Agency Protocol</a>
+                            <span class="text-xs text-emerald-400 mono font-normal">// identity &amp; delegation</span>
+                        </li>
+                    </ul>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">The public protocols each solve one slice of agent communication. Agency Protocol (AIDP-C) adds the missing piece: cryptographically verifiable agent identity and scoped delegation. Open standard, designed to work alongside ACP, UCP, A2A, and FIDO agentic flows.</p>
+                </div>
+
+            </div>
+
+            <!-- Stack footer -->
+            <div class="pt-6 border-t border-white/15">
+                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+                    <span class="text-xs uppercase tracking-widest text-slate-500 mono">Current Stack</span>
+                    <span class="text-xs text-slate-300 mono">Qwen3.5-122B (custom REAP-pruned) &middot; NVIDIA Parakeet TDT (native speech) &middot; custom mini-thinking router (offloads thought planning)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills v2 -->
+    <div id="skills" class="bg-white border-y border-slate-200 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-8 flex items-end justify-between flex-wrap gap-y-3">
+                <div>
+                    <span class="block text-blue-600 font-semibold tracking-widest text-sm">EXPERTISE</span>
+                    <h2 class="section-header">Technical Skills</h2>
+                </div>
+                <div class="hidden md:block text-xs text-slate-500 mono">20+ years &middot; six layers of the stack</div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- AI & Emerging Tech -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-violet-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-robot text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">AI &amp; Frontier Compute</h3>
+                            <p class="text-sm text-slate-500 mb-4">Self-hosted frontier models, agents, and retrieval at production scale</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">NVIDIA Hardware Stack &middot; Grace Blackwell</span>
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">Distributed Inference &middot; Tensor Parallel Serving</span>
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">MoE Models &middot; REAP Pruning</span>
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">Agentic RAG &middot; Tool-Using Agents</span>
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">Quantization &middot; KV-Cache Compression</span>
+                                <span class="skill-badge group-hover:bg-violet-100 transition-colors">Predictive Analytics &middot; Computer Vision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud & Infrastructure -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-sky-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-cloud text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">Cloud &amp; Infrastructure</h3>
+                            <p class="text-sm text-slate-500 mb-4">Multi-cloud platform builder &mdash; fluent across both hyperscalers, comfortable in hybrid, on-prem, and edge</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Multi-Cloud Platform Design</span>
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Serverless &middot; Event Bus &middot; Managed Functions</span>
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Container Orchestration &middot; API Gateways</span>
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Managed NoSQL &middot; Object Storage</span>
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Hybrid Cloud &middot; On-Prem &middot; VMware &middot; HADR</span>
+                                <span class="skill-badge group-hover:bg-sky-100 transition-colors">Edge Computing &middot; Kubernetes &middot; Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & Integration -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-emerald-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-database text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">Data &amp; Integration</h3>
+                            <p class="text-sm text-slate-500 mb-4">Turning raw data into actionable intelligence at scale</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">Event-Driven Architecture</span>
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">Transformation Pipelines &middot; ETL/ELT</span>
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">Master Data Management</span>
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">Snowflake &middot; Airflow &middot; NiFi &middot; ADF</span>
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">EDI/X12 &middot; APIs &middot; iPaaS</span>
+                                <span class="skill-badge group-hover:bg-emerald-100 transition-colors">Analytical &amp; BI &middot; SSRS &middot; SSIS &middot; PowerBI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages & Databases -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-amber-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-code text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">Languages &amp; Databases</h3>
+                            <p class="text-sm text-slate-500 mb-4">Hands-on across the polyglot stack &mdash; transactional, analytical, and embedded</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-amber-100 transition-colors">Python &middot; JavaScript &middot; TypeScript &middot; .NET</span>
+                                <span class="skill-badge group-hover:bg-amber-100 transition-colors">Node.js &middot; React Native</span>
+                                <span class="skill-badge group-hover:bg-amber-100 transition-colors">PostgreSQL &middot; MSSQL &middot; Oracle</span>
+                                <span class="skill-badge group-hover:bg-amber-100 transition-colors">T-SQL &middot; PL/SQL &middot; DDL</span>
+                                <span class="skill-badge group-hover:bg-amber-100 transition-colors">CouchDB &middot; MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Delivery -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-indigo-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-blue-700 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-infinity text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">DevOps &amp; Delivery</h3>
+                            <p class="text-sm text-slate-500 mb-4">Standardized build, test, and ship for engineering and infra alike</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-indigo-100 transition-colors">CI/CD Pipelines &middot; GitHub Actions &middot; Azure DevOps &middot; Harness</span>
+                                <span class="skill-badge group-hover:bg-indigo-100 transition-colors">Terraform &middot; HashiCorp Stack</span>
+                                <span class="skill-badge group-hover:bg-indigo-100 transition-colors">Docker &middot; Kubernetes</span>
+                                <span class="skill-badge group-hover:bg-indigo-100 transition-colors">SaaS-Based DevOps Tooling</span>
+                                <span class="skill-badge group-hover:bg-indigo-100 transition-colors">Linux &middot; RHEL &middot; CentOS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Identity -->
+                <div class="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-rose-200 hover:bg-white transition-all">
+                    <div class="flex items-start gap-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-white text-3xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-2xl mb-1">Security &amp; Identity</h3>
+                            <p class="text-sm text-slate-500 mb-4">Building trust, federation, and compliance into every layer &mdash; for humans and agents alike</p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">OIDC &middot; OAuth2 &middot; SAML &middot; SSO</span>
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">Keycloak &middot; SCIM 2.0 &middot; IdP Federation</span>
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">Entra &middot; AD FS &middot; Okta &middot; Cognito</span>
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">Agent Identity &middot; Non-Human Principals</span>
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">RBAC &middot; NGFW &middot; FortiGate &middot; SDWAN</span>
+                                <span class="skill-badge group-hover:bg-rose-100 transition-colors">SOX &middot; HITRUST &middot; PCI &middot; PII</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div id="education" class="bg-slate-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.4), transparent 40%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.3), transparent 40%);"></div>
+        <div class="relative max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <span class="block text-blue-400 font-semibold tracking-widest text-sm">CREDENTIALS</span>
+                    <h2 class="text-4xl font-semibold tracking-tight mt-3 heading-font">Education &amp; Certifications</h2>
+                    <p class="text-slate-400 mt-4 leading-relaxed">A foundation in business and science, sharpened by industry certifications across cloud architecture and security.</p>
+                </div>
+                <div class="md:col-span-7 grid gap-6">
+                    <div class="flex items-start gap-x-5 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur">
+                        <i class="fas fa-graduation-cap text-3xl text-blue-400 mt-1"></i>
+                        <div>
+                            <div class="font-semibold text-xl">MBA &mdash; Master of Business Administration</div>
+                            <div class="text-slate-400 mono text-sm mt-1">2009</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-x-5 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur">
+                        <i class="fas fa-graduation-cap text-3xl text-blue-400 mt-1"></i>
+                        <div>
+                            <div class="font-semibold text-xl">BS &mdash; Bachelor of Science</div>
+                            <div class="text-slate-400 mono text-sm mt-1">2006</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-x-5 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur">
+                        <i class="fas fa-certificate text-3xl text-emerald-400 mt-1"></i>
+                        <div>
+                            <div class="font-semibold text-xl">AWS Certified Solutions Architect</div>
+                            <div class="text-emerald-400 mono text-sm mt-1">2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / CTA -->
+    <footer class="relative overflow-hidden bg-slate-50">
+        <div class="absolute inset-0 grid-bg opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-24 text-center">
+            <div class="max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-x-2 bg-white border border-slate-200 rounded-3xl px-4 py-1.5 mb-6">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-medium text-slate-600">Available for fun or serious strategic conversations</span>
+                </div>
+                <h3 class="font-semibold text-4xl md:text-5xl heading-font tracking-tight mb-4">Let&rsquo;s build something <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">great</span> together.</h3>
+                <p class="text-slate-600 mb-10 text-lg">Open to strategic architecture, platform leadership, and advisory opportunities.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:CharlesDupee@Gmail.com" class="px-10 py-4 bg-slate-900 hover:bg-black text-white font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg shadow-slate-900/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-10 5L2 7"/>
+                        </svg>
+                        CharlesDupee@Gmail.com
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-1">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/charlesdupee" target="_blank" class="px-8 py-4 border border-slate-300 bg-white hover:bg-slate-100 font-semibold rounded-3xl flex items-center justify-center gap-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        @charlesdupee
+                    </a>
+                    <a href="https://www.linkedin.com/in/charlesdupee" target="_blank" class="px-8 py-4 border border-slate-300 bg-white hover:bg-slate-100 font-semibold rounded-3xl flex items-center justify-center gap-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="mt-12 text-xs text-slate-500 mono flex flex-wrap items-center justify-center gap-x-2">
+                    <span class="inline-block w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                    <span>This portfolio auto-updates via a scoped agentic context-gathering process running on the AI Lab</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Filters -->
+    <script>
+
+        // Project Filter Function
+        function filterProjects(tag) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('#tag-filters button');
+            const allBtn = document.getElementById('tag-all');
+
+            // Reset active states
+            buttons.forEach(btn => btn.classList.remove('active-tag-style'));
+            allBtn.classList.remove('active-tag-style');
+
+            if (tag === 'all') {
+                cards.forEach(card => card.style.display = '');
+                allBtn.classList.add('active-tag-style');
+                return;
+            }
+
+            // Highlight active tag
+            const activeBtn = Array.from(buttons).find(btn => btn.textContent.includes(tag));
+            if (activeBtn) activeBtn.classList.add('active-tag-style');
+
+            cards.forEach(card => {
+                const tagElements = card.querySelectorAll('.flex.flex-wrap.gap-1 span');
+                let hasTag = false;
+                tagElements.forEach(el => {
+                    if (el.textContent.includes('#' + tag)) hasTag = true;
+                });
+                card.style.display = hasTag ? '' : 'none';
+            });
+        }
+
+        // Keyboard support: press Escape to show all
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                filterProjects('all');
+            }
+        });
+    </script>
+
+</body>
+</html>
