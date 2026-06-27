@@ -731,16 +731,16 @@
                             <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                             DeepSeek V4 Flash <span class="text-xs text-emerald-400 mono font-normal">// production — primary model</span>
                         </li>
-                        <li class="text-white font-semibold flex items-center gap-x-2">
-                            <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                            Qwen3.5-122B-A10B <span class="text-xs text-emerald-400 mono font-normal">// REAPed, via vLLM</span>
+                        <li class="text-amber-200 flex items-center gap-x-2">
+                            <span class="inline-block w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                            Qwen3.5-122B-A10B <span class="text-xs text-amber-300 mono font-normal">// previously primary, still in rotation via vLLM</span>
                         </li>
                         <li class="text-white font-semibold flex items-center gap-x-2 mt-1">
                             <span class="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                             NVIDIA Parakeet TDT <span class="text-xs text-emerald-400 mono font-normal">// speech / ASR</span>
                         </li>
                     </ul>
-                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">Qwen3.5-122B is the sweet spot for this hardware, REAP-pruned for serving throughput without the quality cliff. The custom gateway router decides per request when a heavier reasoning pass earns its tokens.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4 pt-4 border-t border-white/10">DeepSeek V4 Flash is the primary serving model today — fast thinking for everyday inference. Qwen3.5-122B (REAP-pruned) ran the show previously and stays in the rotation via vLLM for heavier reasoning passes. The custom gateway router decides per request when the heavier pass earns its tokens.</p>
                 </div>
 
                 <!-- 5: Agent Harness -->
